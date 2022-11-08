@@ -63,7 +63,7 @@ const Header = () => {
                     <Link to='/services'>Services</Link>
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Blogs
+                    <Link to='/login'>Login</Link>
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
                     <Link to='/register'>Register</Link>
