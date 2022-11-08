@@ -3,28 +3,20 @@ import React from 'react';
 
 const Carousal = () => {
     return (
-        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+        <div className="h-56 w-3/4 mx-auto mt-16 sm:h-64 xl:h-80 2xl:h-96">
             <Carousel>
                 <img
-                    src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+                    src="https://i.ibb.co/Cv4kcYL/slider-main.webp"
                     alt="..."
                 />
                 <img
-                    src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
+                    src="https://i.ibb.co/3p4MQXN/slider-2.webp"
                     alt="..."
                 />
                 <img
-                    src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
+                    src="https://i.ibb.co/G2B4CmM/slider-3.webp"
                     alt="..."
-                />
-                <img
-                    src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-                    alt="..."
-                />
-                <img
-                    src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-                    alt="..."
-                />
+                />           
             </Carousel>
         </div>
     );

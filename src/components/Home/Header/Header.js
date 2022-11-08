@@ -1,6 +1,7 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -50,10 +51,10 @@ const Header = () => {
             </div>
             <Navbar.Collapse>
                 <Navbar.Link
-                    href="/navbars"
+                    href="/home"
                     active={true}
                 >
-                    Home
+                   <Link to='/home'>Home</Link>
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
                     About
@@ -62,7 +63,7 @@ const Header = () => {
                     Services
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Pricing
+                    Blogs
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
                     Contact

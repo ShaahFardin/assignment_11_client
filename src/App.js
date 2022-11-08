@@ -1,17 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Carousal from './components/Home/Carousal/Carousal';
-import Dashboard from './components/Home/Dashboard/Dashboard';
-import Registration from './components/Home/Form/Registration';
-import Header from './components/Home/Header/Header';
-
+import router from './Routes/Routes';
 
 function App() {
   return (
     <div className="App">
-     <Header></Header>
-     <Dashboard></Dashboard>
-     <Carousal></Carousal>
-     <Registration></Registration>
+     <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
