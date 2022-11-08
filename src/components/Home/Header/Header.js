@@ -1,9 +1,13 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext);
+
     return (
         <Navbar
             fluid={true}
@@ -23,14 +27,15 @@ const Header = () => {
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
-                    label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                    label={ <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
                 >
+                   
                     <Dropdown.Header>
                         <span className="block text-sm">
                             Bonnie Green
                         </span>
                         <span className="block truncate text-sm font-medium">
-                            name@flowbite.com
+                           {user?.email}
                         </span>
                     </Dropdown.Header>
                     <Dropdown.Item>
@@ -44,7 +49,7 @@ const Header = () => {
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        Sign out
+                        {user?.email? <p>Signout</p>:<p>Signin</p>}
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
@@ -56,17 +61,22 @@ const Header = () => {
                 >
                    <Link to='/home'>Home</Link>
                 </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    About
-                </Navbar.Link>
+               
                 <Navbar.Link href="/navbars">
                     <Link to='/services'>Services</Link>
                 </Navbar.Link>
+                
                 <Navbar.Link href="/navbars">
                     <Link to='/login'>Login</Link>
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
                     <Link to='/register'>Register</Link>
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                    {user?.email? <><Link to='/services'>My Reviews</Link></>:<></>}
+                </Navbar.Link>
+                <Navbar.Link href="/navbars">
+                {user?.email? <><Link to='/services'>Add Review</Link></>:<></>}
                 </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
