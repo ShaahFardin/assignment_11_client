@@ -1,5 +1,5 @@
 import { faInbox } from '@fortawesome/free-solid-svg-icons';
-import { Card, Sidebar } from 'flowbite-react';
+import { Card, Label, Sidebar, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EventReview from '../../Review/EventReview';
@@ -27,23 +27,23 @@ const ServiceDetails = () => {
     const { name, image, description, price, likes, ratings, download } = serviceDetails;
 
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/eventReview')
-        .then(res => res.json())
+            .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    setEventReviews(data.data);   
+                    setEventReviews(data.data);
                 }
             })
             .catch(error => console.log(error.message))
-    },[])
+    }, [])
 
 
     return (
-        <div>
+        <div className='w-3/4 mx-auto'>
 
-            <div className="w-3/4 mx-auto my-16">
-                <h1 className='text-4xl text-gray-500 my-10 font-semibold'>Get a better look at what you get with us</h1>
+            <div className=" my-16">
+                <h1 className='text-4xl  my-10 font-thin text-left'>Get a better look at what you get with us</h1>
                 <Card >
                     <img className='h-96 rounded-xl' src={image} alt='fdf' />
                     <a href="#dfd">
@@ -109,7 +109,7 @@ const ServiceDetails = () => {
 
                     </div>
                     <div>
-                        <p className="font-normal text-gray-700 dark:text-gray-400">
+                        <p className="font-thin text-gray-700 dark:text-gray-400 ">
                             {description}
                         </p>
                     </div>
@@ -121,20 +121,44 @@ const ServiceDetails = () => {
                             href="df"
                             className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
-                            Add to cart 
+                            Add to cart
                         </a>
                     </div>
                 </Card>
             </div>
 
-            <div>
-            <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white my-10">
-                            See what our customer has to say about us
-                        </h5>
-                {
-                    evenReviews.map( eventReview => <EventReview key={eventReview._id} eventReview={eventReview}></EventReview> )
-                }
+            <div className='flex-shrink-0 md:flex justify-center my-36 '>
+
+                <div className='w-3/5'>
+                    <h5 className="text-3xl font-thin text-left">
+                        See what our customer has to say about us
+                    </h5>
+                    {
+                        evenReviews.map(eventReview => <EventReview key={eventReview._id} eventReview={eventReview}></EventReview>)
+                    }
+                </div>
+
+                <div className='w-2/5 mt-12 ml-5'>
+                    
+                    <div id="textarea">
+                        <div className="mb-2 block">
+                            <Label
+                                htmlFor="comment"
+                            />
+                        </div>
+                        <Textarea
+                            id="comment"
+                            placeholder="Leave a comment..."
+                            required={true}
+                            rows={4}
+                        />
+                        <button className='text-start bg-blue-600 px-16 py-1 text-white font-semibold rounded-lg mt-10'>ADD</button>
+                    </div>
+                </div>
+
             </div>
+
+
         </div>
     );
 };

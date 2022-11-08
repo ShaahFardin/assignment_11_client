@@ -5,9 +5,8 @@ const EventReview = ({ eventReview }) => {
     const { review, ratings, image, name } = eventReview;
     return (
         <div>
-            <div className="w-3/5 mx-auto my-5">
+            <div className=" my-5">
                 <Card>
-                    
                     <div className="flow-root">
                         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                             <li className="pt-3 pb-0 sm:pt-4">
@@ -22,9 +21,7 @@ const EventReview = ({ eventReview }) => {
                                             <p className=" text-gray-600 dark:text-white">
                                                 {name}
                                             </p>
-
                                         </div>
-
                                     </div>
                                     <div className="min-w-0 flex-1">
 
