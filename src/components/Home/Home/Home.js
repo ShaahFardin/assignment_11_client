@@ -4,9 +4,9 @@ import Carousal from '../Carousal/Carousal';
 
 const Home = () => {
     return (
-        <div>
+        <div className='my-36'>
             <Carousal></Carousal>
-            <LimitedService></LimitedService>
+            <LimitedService></LimitedService> 
         </div>
     );
 };
