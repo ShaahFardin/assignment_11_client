@@ -1,7 +1,10 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const {login} = useContext(AuthContext);
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -10,7 +13,13 @@ const Login = () => {
         const password = form.password.value
         console.log(email, password);
 
-        
+        login(email, password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            alert('Logged is successfully')
+        })
+        .catch(error=>console.log(error))
         
     }
     

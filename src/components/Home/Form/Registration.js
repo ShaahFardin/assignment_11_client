@@ -21,6 +21,7 @@ const Registration = () => {
         .then(result=>{
             const user = result.user;
             console.log(user);
+            alert("User created successfully")
         })
         .catch(error=>console.log(error))
     }
