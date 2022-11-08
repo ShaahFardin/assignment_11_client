@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ServiceCard from './ServiceCard';
 
 const LimitedService = () => {
     const page = 1;
@@ -22,10 +23,13 @@ const LimitedService = () => {
     return (
         <div>
             <h1>Number of services : {services.length}</h1>
-            <div>
+            <div className='grid grid-cols-3 w-3/4 mx-auto mt-24 gap-5'>
                 {
-                    services.map(service=><p>{service.name}</p>)
+                    services.map(service=><ServiceCard key={service._id} service={service}></ServiceCard>)
                 }
+            </div>
+            <div>
+                falk
             </div>
         </div>
     );
