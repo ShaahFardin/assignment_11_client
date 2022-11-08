@@ -6,7 +6,9 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const {user} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
+
+    logout().then(()=>alert("Logged out")).catch(error=>console.log(error))
 
     return (
         <Navbar
@@ -49,7 +51,7 @@ const Header = () => {
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        {user?.email? <p>Signout</p>:<p>Signin</p>}
+                        {user?.email? <p>Signout</p>:<Link to='/login'>Signin</Link>}
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
