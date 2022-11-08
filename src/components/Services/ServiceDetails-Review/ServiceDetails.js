@@ -2,6 +2,7 @@ import { faInbox } from '@fortawesome/free-solid-svg-icons';
 import { Card, Label, Sidebar, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Comment from '../../Comment/Comment';
 import EventReview from '../../Review/EventReview';
 
 const ServiceDetails = () => {
@@ -139,21 +140,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div className='w-2/5 mt-12 ml-5'>
-                    
-                    <div id="textarea">
-                        <div className="mb-2 block">
-                            <Label
-                                htmlFor="comment"
-                            />
-                        </div>
-                        <Textarea
-                            id="comment"
-                            placeholder="Leave a comment..."
-                            required={true}
-                            rows={4}
-                        />
-                        <button className='text-start bg-blue-600 px-16 py-1 text-white font-semibold rounded-lg mt-10'>ADD</button>
-                    </div>
+                    <Comment></Comment>
                 </div>
 
             </div>
