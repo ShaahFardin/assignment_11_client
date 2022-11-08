@@ -1,10 +1,15 @@
-import { Card } from 'flowbite-react';
+import { Button, Card } from 'flowbite-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const ServiceCard = ({service}) => {
 
+    const navigate = useNavigate();
     const {name, image, _id, price, ratings} = service;
+
+    const handleViewDetails = id =>{
+        navigate(`/service/${id}`)
+    }
 
     return (
         <div className="max-w-sm">
@@ -68,12 +73,7 @@ const ServiceCard = ({service}) => {
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                         ${price}
                     </span>
-                    <a
-                        href="df"
-                        className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
-                    >
-                        <Link>View Details</Link>
-                    </a>
+                    <Button onClick={()=>handleViewDetails(_id)}>View Details</Button>
                 </div>
             </Card>
         </div>

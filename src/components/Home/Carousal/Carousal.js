@@ -3,7 +3,7 @@ import React from 'react';
 
 const Carousal = () => {
     return (
-        <div className="h-56 w-3/4 mx-auto mt-16 sm:h-64 xl:h-80 2xl:h-96">
+        <div className="h-56 w-3/4 mx-auto mt-16 sm:h-64 xl:h-80 2xl:h-96 ">
             <Carousel>
                 <img
                     src="https://i.ibb.co/Cv4kcYL/slider-main.webp"
