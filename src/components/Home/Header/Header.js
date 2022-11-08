@@ -66,7 +66,7 @@ const Header = () => {
                     Blogs
                 </Navbar.Link>
                 <Navbar.Link href="/navbars">
-                    Contact
+                    <Link to='/register'>Register</Link>
                 </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>

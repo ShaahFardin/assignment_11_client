@@ -1,17 +1,28 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+
 
 const Registration = () => {
+
+    const {createNewUserManually} = useContext(AuthContext)
 
 
     const handleRegistratioin = e => {
         e.preventDefault();
+
+        
         const user = {
             "name": e.target.name.value,
             "email": e.target.email.value,
             "password": e.target.password.value,
         }
-        console.log(user);
+        createNewUserManually(user.email, user.password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error=>console.log(error))
     }
 
     return (
