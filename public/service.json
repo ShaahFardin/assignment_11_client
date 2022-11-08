@@ -1,0 +1,73 @@
+[
+    {
+        "name":"Basic Photography",
+        "ratings":3.2,
+        "download":342,
+        "comments":22,
+        "likes":123,
+        "price": 55,
+        "image": "https://iso.500px.com/wp-content/uploads/2016/03/pedroquintela-1500x844.jpg",
+        "description":"Photography is the art, application, and practice of creating durable images by recording light, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film. It is employed in many fields of science, manufacturing (e.g., photolithography), and business, as well as its more direct uses for art, film and video production, recreational purposes, hobby, and mass communication."
+    },
+    {
+        "name":"Wedding Photography",
+        "ratings":5.0,
+        "download":554,
+        "comments":34,
+        "likes":165,
+        "price": 75,
+        "image": "https://www.linandjirsa.com/wp-content/uploads/010-galway-downs-temecula-wedding-photography-1000x667.jpg",
+        "description":"Finding the perfect wedding photographer in Bangladesh should be easy, thanks to a large number of creative photographers in the country. Once you’ve narrowed down your wedding-related search, be sure to visit some photographer in their photography studio. This is the most reliable way to choose as you will be able to see his or her wedding portfolio.Bangladesh is a beautiful country and a professional photographer is sure to have ideas about the best wedding photography locations. Sundarbans Mangrove Forest and the Somapura Mahavihara world heritage site are just two of many examples. Chat with wedding professionals and make the right choice for you and your wedding."
+    },
+    {
+        "name":"Pre-Wedding Photography",
+        "ratings":4.2,
+        "download":354,
+        "comments":45,
+        "likes":765,
+        "price": 45,
+        "image": "https://cdn0.weddingwire.in/article/7743/3_2/960/jpg/103477-pre-wedding-shoots-26.jpeg",
+        "description":"Finding the perfect wedding photographer in Bangladesh should be easy, thanks to a large number of creative photographers in the country. Once you’ve narrowed down your wedding-related search, be sure to visit some photographer in their photography studio. This is the most reliable way to choose as you will be able to see his or her wedding portfolio.Bangladesh is a beautiful country and a professional photographer is sure to have ideas about the best wedding photography locations. Sundarbans Mangrove Forest and the Somapura Mahavihara world heritage site are just two of many examples. Chat with wedding professionals and make the right choice for you and your wedding."
+    },
+    {
+        "name":"Potrait Photography",
+        "ratings":3.2,
+        "download":654,
+        "comments":45,
+        "likes":165,
+        "price": 35,
+        "image": "https://expertphotography.b-cdn.net/wp-content/uploads/2022/03/Portrait-Photographers-Manny-Librodo-Girl.jpg",
+        "description":"A portrait is a painting, photograph, sculpture, or other artistic representation of a person, in which the face and its expressions are predominant. The intent is to display the likeness, personality, and even the mood of the person. For this reason, in photography a portrait is generally not a snapshot, but a composed image of a person in a still position. A portrait often shows a person looking directly at the painter or photographer, in order to most successfully engage the subject with the viewer."
+    },
+    {
+        "name":"Professional Photoshot",
+        "ratings":5.0,
+        "download":654,
+        "comments":45,
+        "likes":165,
+        "price": 35,
+        "image": "https://i.pinimg.com/originals/20/a4/65/20a4657ab05cb5c4f557072091beca02.jpg",
+        "description":"A portrait is a painting, photograph, sculpture, or other artistic representation of a person, in which the face and its expressions are predominant. The intent is to display the likeness, personality, and even the mood of the person. For this reason, in photography a portrait is generally not a snapshot, but a composed image of a person in a still position. A portrait often shows a person looking directly at the painter or photographer, in order to most successfully engage the subject with the viewer."
+    },
+    {
+        "name":"Professional Photoshot",
+        "ratings":4.9,
+        "download":154,
+        "comments":45,
+        "likes":165,
+        "price": 56,
+        "image": "https://i.pinimg.com/originals/20/a4/65/20a4657ab05cb5c4f557072091beca02.jpg",
+        "description":"A portrait is a painting, photograph, sculpture, or other artistic representation of a person, in which the face and its expressions are predominant. The intent is to display the likeness, personality, and even the mood of the person. For this reason, in photography a portrait is generally not a snapshot, but a composed image of a person in a still position. A portrait often shows a person looking directly at the painter or photographer, in order to most successfully engage the subject with the viewer."
+    },
+    {
+        "name":"Event Photoshot",
+        "ratings":3.2,
+        "download":354,
+        "comments":45,
+        "likes":165,
+        "price": 35,
+        "image": "https://www.cloudbooth.com.sg/wp-content/uploads/2018/07/3-types-of-event-photography-services-to-wow-your-audience.jpg",
+        "description":"A portrait is a painting, photograph, sculpture, or other artistic representation of a person, in which the face and its expressions are predominant. The intent is to display the likeness, personality, and even the mood of the person. For this reason, in photography a portrait is generally not a snapshot, but a composed image of a person in a still position. A portrait often shows a person looking directly at the painter or photographer, in order to most successfully engage the subject with the viewer."
+    }
+
+]
