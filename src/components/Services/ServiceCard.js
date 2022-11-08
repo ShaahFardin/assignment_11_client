@@ -1,6 +1,7 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
+import {FaWri} from "@fortawesome/free-solid-svg-icons"
 
 const ServiceCard = ({service}) => {
 
