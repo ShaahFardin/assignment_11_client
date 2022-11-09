@@ -5,6 +5,7 @@ import Home from "../components/Home/Home/Home";
 import ServiceDetails from "../components/Services/ServiceDetails-Review/ServiceDetails";
 import Services from "../components/Services/Services";
 import Main from "../Layout/Main";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <PrivateRoutes><Services></Services></PrivateRoutes>
             },
             {
                 path: '/register',
