@@ -2,6 +2,7 @@ import { faInbox } from '@fortawesome/free-solid-svg-icons';
 import { Card, Label, Sidebar, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PrivateRoutes from '../../../Routes/PrivateRoutes';
 import Comment from '../../Comment/Comment';
 import EventReview from '../../Review/EventReview';
 
@@ -140,7 +141,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div className='w-2/5 mt-12 ml-5'>
-                    <Comment></Comment>
+                   <Comment></Comment>
                 </div>
 
             </div>
