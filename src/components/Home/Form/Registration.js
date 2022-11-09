@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Registration = () => {
 
-    const {createNewUserManually} = useContext(AuthContext)
+    const {createNewUserManually, googleSignIn, setLoading} = useContext(AuthContext)
 
 
     const handleRegistratioin = e => {
@@ -24,6 +24,16 @@ const Registration = () => {
             alert("User created successfully")
         })
         .catch(error=>console.log(error))
+    }
+
+    const handleGoogleSignIn=()=>{
+        googleSignIn()
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            setLoading(false)
+        })
+        .catch(error=>console.log(error.message))
     }
 
     return (
@@ -88,7 +98,11 @@ const Registration = () => {
                 <Button type="submit">
                     Register new account
                 </Button>
+                
             </form>
+            <Button onClick={handleGoogleSignIn}  type="submit">
+                   Google sign in
+                </Button>
         </div>
     );
 };

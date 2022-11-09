@@ -1,4 +1,4 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -46,20 +46,21 @@ const Header = () => {
                         </span>
                     </Dropdown.Header>
 
-                    <Dropdown.Item>
-                        {user?.email ? <><Link to='/services'>Services</Link></> : <>No mail</>}
-                    </Dropdown.Item>
+                    {/* <Dropdown.Item>
+                        {user?.email ? <><Link to='/services'>{user?.email}</Link></> : <>No mail</>}
+                    </Dropdown.Item> */}
 
                     <Dropdown.Item>
                         <Link to='/myReviews'>My Reviews</Link>
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                        Earnings
+                        <Link>Add Service</Link>
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        {user?.email ? <button onClick={handleLogout}>Signout</button> : <Link to='/login'>SignIn</Link>}
+                        {user?.email ? <Button onClick={handleLogout}>Signout</Button>
+                         : <Button><Link to='/login'>SignIn</Link></Button>}
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
@@ -77,15 +78,15 @@ const Header = () => {
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/blogs'>Blogs</Link>
                 </Navbar.Link>
                 <Navbar.Link >
-                    <Link to='/register'>Register</Link>
+                    {user?.email? "" : <Link to='/register'>Register</Link>}
                 </Navbar.Link>
 
-                <Navbar.Link>
+                {/* <Navbar.Link>
                     {user?.email ? <><Link to='/services'>Add Review</Link></> : <></>}
-                </Navbar.Link>
+                </Navbar.Link> */}
             </Navbar.Collapse>
         </Navbar>
     );
