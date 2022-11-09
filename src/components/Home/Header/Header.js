@@ -55,7 +55,7 @@ const Header = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                        <Link>Add Service</Link>
+                        {user?.email? <Link>Add Service</Link>:<></>}
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
@@ -81,7 +81,7 @@ const Header = () => {
                     <Link to='/blogs'>Blogs</Link>
                 </Navbar.Link>
                 <Navbar.Link >
-                    {user?.email? "" : <Link to='/register'>Register</Link>}
+                    {user?.email? <Link to='/addService'>Add Service</Link> : <></>}
                 </Navbar.Link>
 
                 {/* <Navbar.Link>

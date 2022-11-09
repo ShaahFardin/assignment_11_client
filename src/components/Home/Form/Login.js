@@ -99,7 +99,7 @@ const Login = () => {
                     LOGIN
                 </Button>
             </form>
-                <Button className='w-full mt-5' color="gray">
+                <Button onClick={handleGoogleSignIn} className='w-full mt-5' color="gray">
                     <FaGoogle className='text-xl mr-5'></FaGoogle> <p className='font-thin text-xl'>Login with Google</p>
                 </Button>
         </div>

@@ -5,6 +5,7 @@ import Registration from "../components/Home/Form/Registration";
 import Home from "../components/Home/Home/Home";
 import MyReview from "../components/Review/MyReview";
 import UpdateReview from "../components/Review/UpdateReview";
+import AddService from "../components/Services/AddService";
 import ServiceDetails from "../components/Services/ServiceDetails-Review/ServiceDetails";
 import Services from "../components/Services/Services";
 import Main from "../Layout/Main";
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path:'/review/update/:id',
                 element: <UpdateReview></UpdateReview>
+            },
+            {
+                path:'/addService',
+                element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             }
         ]
     }
