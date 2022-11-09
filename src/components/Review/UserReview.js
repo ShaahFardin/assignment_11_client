@@ -1,10 +1,12 @@
 import { Card } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const EventReview = ({ eventReview }) => {
+const UserReview = ({ specificReview }) => {
 
-    const { review, ratings, image, name } = eventReview;
-    
+    const { user } = useContext(AuthContext)
+    const { review, email, image } = specificReview;
+
     return (
         <div>
             <div className=" my-5">
@@ -16,23 +18,23 @@ const EventReview = ({ eventReview }) => {
                                     <div className="flex items-center ">
                                         <img
                                             className="h-10 w-10 rounded mr-3"
-                                            src={image}
-                                            alt="Thomas "
+                                            src={user?.displayName}
+                                            alt="Null"
                                         />
                                         <div className="min-w-0 flex-1">
                                             <p className=" text-gray-600 dark:text-white">
-                                                {name}
+                                                {email}
                                             </p>
                                         </div>
                                     </div>
                                     <div className="min-w-0 flex-1">
 
                                         <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                                            {review}
+                                            { review}
                                         </p>
                                     </div>
                                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                        <p className="mr-2 ml-3 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-200 dark:text-blue-800">Ratings : {ratings} </p>
+                                        <p className="mr-2 ml-3 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-200 dark:text-blue-800">Ratings : { } </p>
                                     </div>
                                 </div>
                             </li>
@@ -44,4 +46,4 @@ const EventReview = ({ eventReview }) => {
     );
 };
 
-export default EventReview;
+export default UserReview;

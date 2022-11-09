@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const Comment = () => {
+const Comment = ({setRefresh, refresh}) => {
 
     const router = useParams();
     const {id} = router;
@@ -40,7 +40,8 @@ const Comment = () => {
         .then(res=> res.json())
         .then(data=>{
             if(data.success){
-                alert("Review added successfully")
+                alert("Review added successfully");
+                
             }else{
                 console.log(data.error);
             }

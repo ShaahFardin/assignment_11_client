@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import PrivateRoutes from '../../../Routes/PrivateRoutes';
 import Comment from '../../Comment/Comment';
 import EventReview from '../../Review/EventReview';
+import UserReview from '../../Review/UserReview';
 
 const ServiceDetails = () => {
 
@@ -13,6 +14,8 @@ const ServiceDetails = () => {
 
     const [serviceDetails, setServiceDetails] = useState([]);
     const [evenReviews, setEventReviews] = useState([]);
+    const [serviceSpecificReview,setserviceSpecificReview ] = useState([]);
+    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:5000/service/${id}`)
@@ -24,7 +27,7 @@ const ServiceDetails = () => {
                 }
             })
             .catch(error => console.log(error.message))
-    }, [id])
+    }, [refresh,id])
 
     const { name, image, description, price, likes, ratings, download } = serviceDetails;
 
@@ -35,6 +38,7 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.success) {
                     setEventReviews(data.data);
+                    
                 }else{
                     console.log('couldnot get data')
                 }
@@ -42,18 +46,23 @@ const ServiceDetails = () => {
             .catch(error => console.log(error.message))
     }, [])
 
+
+
     useEffect(()=>{
         fetch(`http://localhost:5000/userReviews?service_id=${id}`)
         .then(res=>res.json())
         .then(data=>{
             if(data.success){
+                setserviceSpecificReview(data.data);
                 console.log(data);
+                setRefresh(!refresh)
             }else{
                 console.log('could not get the service specific dadta');
             }
         })
         .catch(error=>console.log(error.message))
-    },[id])
+    },[refresh, id])
+
 
 
     return (
@@ -150,6 +159,9 @@ const ServiceDetails = () => {
                     <h5 className="text-3xl font-thin text-left">
                         See what our customer has to say about us
                     </h5>
+                    {
+                     serviceSpecificReview.map(specificReview=><UserReview key={specificReview._id} specificReview={specificReview}></UserReview>)
+                    }
                     {
                         evenReviews.map(eventReview => <EventReview key={eventReview._id} eventReview={eventReview}></EventReview>)
                     }
