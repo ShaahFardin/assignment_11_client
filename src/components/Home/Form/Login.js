@@ -2,10 +2,11 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import {FaGoogle} from "react-icons/fa";
 
 const Login = () => {
 
-    const { login, setLoading } = useContext(AuthContext);
+    const { login,  googleSignIn, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -34,6 +35,16 @@ const Login = () => {
                 setLoading(false)
             })
 
+    }
+
+    const handleGoogleSignIn=()=>{
+        googleSignIn()
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            setLoading(false)
+        })
+        .catch(error=>console.log(error.message))
     }
 
     return (
@@ -88,6 +99,9 @@ const Login = () => {
                     LOGIN
                 </Button>
             </form>
+                <Button className='w-full mt-5' color="gray">
+                    <FaGoogle className='text-xl mr-5'></FaGoogle> <p className='font-thin text-xl'>Login with Google</p>
+                </Button>
         </div>
     );
 };

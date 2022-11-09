@@ -1,39 +1,40 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { FaGoogle } from "react-icons/fa";
 
 
 const Registration = () => {
 
-    const {createNewUserManually, googleSignIn, setLoading} = useContext(AuthContext)
+    const { createNewUserManually, googleSignIn, setLoading } = useContext(AuthContext)
 
 
     const handleRegistratioin = e => {
         e.preventDefault();
 
-        
+
         const user = {
             "name": e.target.name.value,
             "email": e.target.email.value,
             "password": e.target.password.value,
         }
         createNewUserManually(user.email, user.password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-            alert("User created successfully")
-        })
-        .catch(error=>console.log(error))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                alert("User created successfully")
+            })
+            .catch(error => console.log(error))
     }
 
-    const handleGoogleSignIn=()=>{
+    const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-            setLoading(false)
-        })
-        .catch(error=>console.log(error.message))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setLoading(false)
+            })
+            .catch(error => console.log(error.message))
     }
 
     return (
@@ -98,11 +99,11 @@ const Registration = () => {
                 <Button type="submit">
                     Register new account
                 </Button>
-                
+
             </form>
-            <Button onClick={handleGoogleSignIn}  type="submit">
-                   Google sign in
-                </Button>
+            <Button icon={FaGoogle} color='light' className='w-full mt-5' onClick={handleGoogleSignIn} type="submit">
+              <FaGoogle></FaGoogle> <p className='font-thin ml-5 text-xl'>Google Sign In</p>
+            </Button>
         </div>
     );
 };
