@@ -3,6 +3,7 @@ import Comment from "../components/Comment/Comment";
 import Login from "../components/Home/Form/Login";
 import Registration from "../components/Home/Form/Registration";
 import Home from "../components/Home/Home/Home";
+import MyReview from "../components/Review/MyReview";
 import ServiceDetails from "../components/Services/ServiceDetails-Review/ServiceDetails";
 import Services from "../components/Services/Services";
 import Main from "../Layout/Main";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
                 path: '/comment',
                 element: <Comment></Comment>
             },
+            {
+                path:'/myReviews',
+                element: <MyReview></MyReview>
+            }
         ]
     }
 ])

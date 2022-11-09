@@ -3,12 +3,12 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const Comment = ({setRefresh, refresh}) => {
+const Comment = ({name}) => {
 
     const router = useParams();
     const {id} = router;
 
-    console.log(`id inside the current details section ${id}`);
+   console.log("name of the service", name);
 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -26,10 +26,13 @@ const Comment = ({setRefresh, refresh}) => {
 
         const userReview = {
             "service_id": id,
+            "service_name": name,
             "email": user.email,
             "review": e.target.review.value,
 
         }
+
+
         fetch('http://localhost:5000/userReviews', {
             method:"POST",
             headers: {
@@ -60,6 +63,7 @@ const Comment = ({setRefresh, refresh}) => {
                             htmlFor="comment"
                         />
                     </div>
+                    <TextInput placeholder={name} readOnly className='mb-3'></TextInput>
                     <TextInput
                         type='text'
                         name='review'

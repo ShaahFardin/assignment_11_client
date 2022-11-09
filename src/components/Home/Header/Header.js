@@ -51,7 +51,7 @@ const Header = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                        Settings
+                        <Link to='/myReviews'>My Reviews</Link>
                     </Dropdown.Item>
 
                     <Dropdown.Item>

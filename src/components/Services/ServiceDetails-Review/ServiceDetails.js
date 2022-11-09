@@ -23,11 +23,11 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.success) {
                     setServiceDetails(data.data);
-                    setServiceDetails(data.data)
+                    // setServiceDetails(data.data)
                 }
             })
             .catch(error => console.log(error.message))
-    }, [refresh,id])
+    }, [id])
 
     const { name, image, description, price, likes, ratings, download } = serviceDetails;
 
@@ -55,7 +55,7 @@ const ServiceDetails = () => {
             if(data.success){
                 setserviceSpecificReview(data.data);
                 console.log(data);
-                setRefresh(!refresh)
+                setRefresh(false)
             }else{
                 console.log('could not get the service specific dadta');
             }
@@ -159,6 +159,7 @@ const ServiceDetails = () => {
                     <h5 className="text-3xl font-thin text-left">
                         See what our customer has to say about us
                     </h5>
+                    {/* <p className='font-thin'>Total Review {serviceSpecificReview.length}</p> */}
                     {
                      serviceSpecificReview.map(specificReview=><UserReview key={specificReview._id} specificReview={specificReview}></UserReview>)
                     }
@@ -168,7 +169,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div className='w-2/5 mt-12 ml-5'>
-                   <Comment></Comment>
+                   <Comment name={name}></Comment>
                 </div>
 
             </div>
