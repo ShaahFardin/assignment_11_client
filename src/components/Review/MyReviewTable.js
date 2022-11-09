@@ -1,9 +1,11 @@
 import { Button, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
 
     const { email, review, service_name, _id } = myReview;
+    const navigate = useNavigate();
 
 
     const handelDelete = () => {
@@ -23,6 +25,10 @@ const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
 
     }
 
+    const handleUpdate=()=>{
+        navigate(`/review/update/${_id}`)
+    }
+
     return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -36,7 +42,7 @@ const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
             </Table.Cell>
 
             <Table.Cell>
-                <Button>Edit</Button>
+                <Button onClick={handleUpdate}>Edit</Button>
             </Table.Cell>
             <Table.Cell>
                 <Button onClick={handelDelete}>Delete</Button>
