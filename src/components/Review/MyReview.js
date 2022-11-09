@@ -6,10 +6,9 @@ import MyReviewTable from './MyReviewTable';
 const MyReview = () => {
 
     const { user } = useContext(AuthContext);
-
     const email = user?.email;
-
     const [myReviews, setMyReviews] = useState([]);
+    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:5000/myReviews?email=${email}`)
@@ -18,7 +17,7 @@ const MyReview = () => {
                 console.log(data);
                 setMyReviews(data.data)
             })
-    }, [email])
+    }, [email, refresh])
 
     if(myReviews.length === 0){
         return <h1 className='text-5xl font-thin my-20'>You did not leave any review "_"</h1>
@@ -30,16 +29,13 @@ const MyReview = () => {
             <Table striped={true}>
                 <Table.Head>
                     <Table.HeadCell>
-                        Product name
+                        Service name
                     </Table.HeadCell>
                     <Table.HeadCell>
                         Color
                     </Table.HeadCell>
                     <Table.HeadCell>
-                        Category
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        Price
+                        Email
                     </Table.HeadCell>
                     <Table.HeadCell>
                         <span className="sr-only">
@@ -49,7 +45,8 @@ const MyReview = () => {
                 </Table.Head>
                 <Table.Body className="divide-y">
                    {
-                    myReviews.map(myReview=> <MyReviewTable key={myReview._id} myReview={myReview}></MyReviewTable>)
+                    myReviews.map(myReview=> <MyReviewTable key={myReview._id}
+                        refresh={refresh} setRefresh={setRefresh} myReview={myReview}></MyReviewTable>)
                    }
                    
                 </Table.Body>

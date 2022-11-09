@@ -1,11 +1,27 @@
 import { Button, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 
-const MyReviewTable = ({ myReview }) => {
+const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
 
-    const {  email, review, service_name } = myReview;
+    const { email, review, service_name, _id } = myReview;
 
-    console.log(myReview)
+
+    const handelDelete = () => {
+        fetch(`http://localhost:5000/myReviews/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("successfully deleted");
+                    setRefresh(!refresh)
+                } else {
+                    alert(data.error)
+                }
+            })
+            .catch(error => alert(error.message))
+
+    }
 
     return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -15,12 +31,15 @@ const MyReviewTable = ({ myReview }) => {
             <Table.Cell>
                 {review}
             </Table.Cell>
-           
             <Table.Cell>
-            <Button>Edit</Button>
+                {email}
+            </Table.Cell>
+
+            <Table.Cell>
+                <Button>Edit</Button>
             </Table.Cell>
             <Table.Cell>
-                <Button>Delete</Button>
+                <Button onClick={handelDelete}>Delete</Button>
             </Table.Cell>
         </Table.Row>
     );
