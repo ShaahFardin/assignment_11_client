@@ -35,10 +35,25 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.success) {
                     setEventReviews(data.data);
+                }else{
+                    console.log('couldnot get data')
                 }
             })
             .catch(error => console.log(error.message))
     }, [])
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/userReviews?service_id=${id}`)
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.success){
+                console.log(data);
+            }else{
+                console.log('could not get the service specific dadta');
+            }
+        })
+        .catch(error=>console.log(error.message))
+    },[id])
 
 
     return (
