@@ -4,9 +4,10 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const {login} = useContext(AuthContext);
+    const { login, setLoading } = useContext(AuthContext);
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
+        
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -14,20 +15,21 @@ const Login = () => {
         console.log(email, password);
 
         login(email, password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-            alert('Logged is successfully')
-        })
-        .catch(error=>console.log(error))
-        
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                alert('Logged is successfully')
+                setLoading(false)
+            })
+            .catch(error => console.log(error))
+
     }
-    
+
     return (
         <div className='w-3/5 mx-auto my-16'>
             <h1 className='text-3xl font-thin text-left mb-10 text-blue-600'>Login</h1>
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
-               
+
                 <div>
                     <div className="mb-2 block">
                         <Label

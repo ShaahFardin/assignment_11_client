@@ -6,9 +6,14 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const {user, logout} = useContext(AuthContext);
+    const { user, logout, setLoading } = useContext(AuthContext);
 
-    logout().then(()=>alert("Logged out")).catch(error=>console.log(error))
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                setLoading(false)
+            }).catch()
+    }
 
     return (
         <Navbar
@@ -29,29 +34,32 @@ const Header = () => {
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
-                    label={ <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
+                    label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
                 >
-                   
+
                     <Dropdown.Header>
                         <span className="block text-sm">
                             Bonnie Green
                         </span>
                         <span className="block truncate text-sm font-medium">
-                           {user?.email}
+                            {user?.email}
                         </span>
                     </Dropdown.Header>
+
                     <Dropdown.Item>
-                        Dashbord
+                        {user?.email ? <><Link to='/services'>Services</Link></> : <>No mail</>}
                     </Dropdown.Item>
+
                     <Dropdown.Item>
                         Settings
                     </Dropdown.Item>
+
                     <Dropdown.Item>
                         Earnings
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                        {user?.email? <p>Signout</p>:<Link to='/login'>Signin</Link>}
+                        {user?.email ? <button onClick={handleLogout}>Signout</button> : <Link to='/login'>SignIn</Link>}
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
@@ -61,24 +69,22 @@ const Header = () => {
                     href="/home"
                     active={true}
                 >
-                   <Link to='/home'>Home</Link>
+                    <Link to='/home'>Home</Link>
                 </Navbar.Link>
-               
+
                 <Navbar.Link href="/navbars">
                     <Link to='/services'>Services</Link>
                 </Navbar.Link>
-                
-                <Navbar.Link href="/navbars">
+
+                <Navbar.Link>
                     <Link to='/login'>Login</Link>
                 </Navbar.Link>
-                <Navbar.Link href="/navbars">
+                <Navbar.Link >
                     <Link to='/register'>Register</Link>
                 </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    {user?.email? <><Link to='/services'>My Reviews</Link></>:<></>}
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                {user?.email? <><Link to='/services'>Add Review</Link></>:<></>}
+
+                <Navbar.Link>
+                    {user?.email ? <><Link to='/services'>Add Review</Link></> : <></>}
                 </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
