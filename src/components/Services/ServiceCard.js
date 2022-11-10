@@ -1,6 +1,7 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import {  useNavigate } from 'react-router-dom';
+import Gallery from '../Gallery/Gallery';
 
 
 const ServiceCard = ({service}) => {
@@ -19,7 +20,8 @@ const ServiceCard = ({service}) => {
                 
                 // imgSrc={image}
             >
-                <img className='h-72 rounded-xl' src={image} alt='fdf'/>
+                {/* <img className='h-72 rounded-xl' src={image} alt='fdf'/> */}
+                <Gallery image={image} size={"h-64"}></Gallery>
                 <a href="df">
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                         {name}

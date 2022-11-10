@@ -18,18 +18,18 @@ const UserReview = ({ specificReview }) => {
                                     <div className="flex items-center ">
                                         <img
                                             className="h-10 w-10 rounded mr-3"
-                                            src={user?.displayName}
+                                            src={user?.photoURL}
                                             alt="Null"
                                         />
                                         <div className="min-w-0 flex-1">
-                                            <p className=" text-gray-600 dark:text-white">
+                                            <p className="font-thin text-gray-600 dark:text-white">
                                                 {email}
                                             </p>
                                         </div>
                                     </div>
                                     <div className="min-w-0 flex-1">
 
-                                        <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                                        <p className="truncate text-xl text-gray-500 dark:text-gray-400">
                                             { review}
                                         </p>
                                     </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PrivateRoutes from '../../../Routes/PrivateRoutes';
 import Comment from '../../Comment/Comment';
+import Gallery from '../../Gallery/Gallery';
 import EventReview from '../../Review/EventReview';
 import UserReview from '../../Review/UserReview';
 
@@ -70,8 +71,9 @@ const ServiceDetails = () => {
 
             <div className=" my-16">
                 <h1 className='text-4xl  my-10 font-thin text-left'>Get a better look at what you get with us</h1>
-                <Card >
-                    <img className='h-96 rounded-xl' src={image} alt='fdf' />
+                <Card className=''>
+                    {/* <img className='h-96 rounded-xl' src={image} alt='fdf' /> */}
+                    <Gallery image={image} size={"h-96"}></Gallery>
                     <a href="#dfd">
                         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                             {name}

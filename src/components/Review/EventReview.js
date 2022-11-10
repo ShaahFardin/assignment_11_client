@@ -1,10 +1,12 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
+import Gallery from '../Gallery/Gallery';
+
 
 const EventReview = ({ eventReview }) => {
 
     const { review, ratings, image, name } = eventReview;
-    
+
     return (
         <div>
             <div className=" my-5">
@@ -14,11 +16,7 @@ const EventReview = ({ eventReview }) => {
                             <li className="pt-3 pb-0 sm:pt-4">
                                 <div className="flex items-center space-x-4">
                                     <div className="flex items-center ">
-                                        <img
-                                            className="h-10 w-10 rounded mr-3"
-                                            src={image}
-                                            alt="Thomas "
-                                        />
+                                        <Gallery image={image} size={"h-10 w-10 rounded"}></Gallery>
                                         <div className="min-w-0 flex-1">
                                             <p className=" text-gray-600 dark:text-white">
                                                 {name}
