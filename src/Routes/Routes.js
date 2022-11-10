@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import BlogSection from "../components/BlogsSection/BlogSection";
 import Comment from "../components/Comment/Comment";
 import Login from "../components/Home/Form/Login";
 import Registration from "../components/Home/Form/Registration";
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path:'/addService',
                 element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
+            },
+            {
+                path:'/blogs',
+                element: <BlogSection></BlogSection>
             }
         ]
     }
