@@ -1,4 +1,4 @@
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
@@ -22,36 +22,42 @@ const Registration = () => {
             "password": e.target.password.value,
             "photoURL": e.target.photoURL.value
         }
-        console.log("Inside registratioin",user);
+        console.log("Inside registratioin", user);
         createNewUserManually(user.email, user.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success("User created successfully",  { position: toast.POSITION.TOP_CENTER })
+                toast.success("User created successfully", { position: toast.POSITION.TOP_CENTER })
             })
             .catch(error => console.log(error))
+
+
+
+        // Save the newly created user to the database
         fetch('http://localhost:5000/createUser', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
             },
-            body: JSON.stringify(user)       
+            body: JSON.stringify(user)
         })
-        .then(res=> res.json())
-        .then(data=>{
-            if(data.success){
-                toast.success("User created",  { position: toast.POSITION.TOP_CENTER });
-                
-            }else{
-                console.log(data.error);
-            }
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success("User created", { position: toast.POSITION.TOP_CENTER });
+
+                } else {
+                    console.log(data.error);
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
 
     }
 
+
+    // Google signIN
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
@@ -61,6 +67,9 @@ const Registration = () => {
             })
             .catch(error => console.log(error.message))
     }
+
+
+
 
     return (
         <div className='w-3/5 mx-auto mt-20'>
@@ -124,7 +133,7 @@ const Registration = () => {
 
                 <div className="flex items-center gap-2">
                     <Label htmlFor="agree">
-                       Already have an account? <Link to='/login'><span className='text-blue-600'>Login</span></Link>
+                        Already have an account? <Link to='/login'><span className='text-blue-600'>Login</span></Link>
                     </Label>
                 </div>
                 <Button type="submit">
@@ -133,7 +142,7 @@ const Registration = () => {
 
             </form>
             <Button icon={FaGoogle} color='light' className='w-full mt-5' onClick={handleGoogleSignIn} type="submit">
-              <FaGoogle></FaGoogle> <p className='font-thin ml-5 text-xl'>Google Sign In</p>
+                <FaGoogle></FaGoogle> <p className='font-thin ml-5 text-xl'>Google Sign In</p>
             </Button>
         </div>
     );

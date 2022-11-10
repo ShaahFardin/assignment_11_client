@@ -6,7 +6,6 @@ import Registration from "../components/Home/Form/Registration";
 import Home from "../components/Home/Home/Home";
 import MyReview from "../components/Review/MyReview";
 import UpdateReview from "../components/Review/UpdateReview";
-import UserReview from "../components/Review/UserReview";
 import AddService from "../components/Services/AddService";
 import ServiceDetails from "../components/Services/ServiceDetails-Review/ServiceDetails";
 import Services from "../components/Services/Services";
@@ -47,22 +46,22 @@ const router = createBrowserRouter([
                 element: <Comment></Comment>
             },
             {
-                path:'/myReviews',
+                path: '/myReviews',
                 element: <PrivateRoutes><MyReview></MyReview></PrivateRoutes>
             },
             {
-                path:'/review/update/:id',
+                path: '/review/update/:id',
                 element: <UpdateReview></UpdateReview>
             },
             {
-                path:'/addService',
+                path: '/addService',
                 element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             },
             {
-                path:'/blogs',
+                path: '/blogs',
                 element: <BlogSection></BlogSection>
             },
-           
+
         ]
     }
 ])

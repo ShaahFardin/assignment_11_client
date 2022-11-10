@@ -1,6 +1,6 @@
 import { Sidebar } from 'flowbite-react';
 import React from 'react';
-import { FaChartBar, FaViber, FaUser, FaShoppingBag, FaSignInAlt, FaTable, FaChartArea, FaInbox, FaDollarSign, FaHandsHelping } from "react-icons/fa";
+import { FaChartBar, FaUser, FaShoppingBag, FaSignInAlt, FaTable, FaChartArea, FaInbox, FaDollarSign, FaHandsHelping } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
                         >
                             Dashboard
                         </Sidebar.Item>
-                        
+
                         <Sidebar.Item
                             href="#"
                             icon={FaInbox}
@@ -35,16 +35,16 @@ const Dashboard = () => {
                             <Link to='/services'>Services</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
-                           
+
                             icon={FaSignInAlt}
                         >
-                           <Link to='/login'> Sign In</Link>
+                            <Link to='/login'> Sign In</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
                             href="#"
                             icon={FaTable}
                         >
-                           <Link to='/register'> Sign Up</Link>
+                            <Link to='/register'> Sign Up</Link>
                         </Sidebar.Item>
                     </Sidebar.ItemGroup>
                     <Sidebar.ItemGroup>

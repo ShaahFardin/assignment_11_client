@@ -23,6 +23,8 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value
 
+
+        // Manual sign in with email and password
         login(email, password)
             .then(result => {
                 const user = result.user;

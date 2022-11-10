@@ -22,7 +22,7 @@ const PhotoLensFooter = () => {
                                 <Footer.Title title="about" />
                                 <Footer.LinkGroup col={true}>
                                     <Footer.Link href="#">
-                                    <Link to='/myReviews'>My Reviews</Link>
+                                        <Link to='/myReviews'>My Reviews</Link>
                                     </Footer.Link>
                                     <Footer.Link href="#">
                                         <Link to='/services'>Service</Link>

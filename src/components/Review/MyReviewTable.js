@@ -9,6 +9,7 @@ const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
     const navigate = useNavigate();
 
 
+    // Delete review
     const handelDelete = () => {
         fetch(`http://localhost:5000/myReviews/${_id}`, {
             method: 'DELETE'

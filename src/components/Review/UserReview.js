@@ -1,11 +1,11 @@
 import { Card } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import {} from "react-icons/fa";
+import { } from "react-icons/fa";
 const UserReview = ({ specificReview }) => {
 
     const { user } = useContext(AuthContext)
-    const { review, email, image } = specificReview;
+    const { review, email } = specificReview;
 
     return (
         <div>
@@ -21,7 +21,7 @@ const UserReview = ({ specificReview }) => {
                                             src={user?.photoURL}
                                             alt=""
                                         />
-                                        
+
                                         <div className="min-w-0 flex-1">
                                             <p className="font-thin text-gray-600 dark:text-white">
                                                 {email}
@@ -31,7 +31,7 @@ const UserReview = ({ specificReview }) => {
                                     <div className="min-w-0 flex-1">
 
                                         <p className="truncate text-xl text-gray-500 dark:text-gray-400">
-                                            { review}
+                                            {review}
                                         </p>
                                     </div>
                                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
