@@ -43,6 +43,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             setLoading(false)
+            navigate(from, { replace: true });
         })
         .catch(error=>console.log(error.message))
     }
