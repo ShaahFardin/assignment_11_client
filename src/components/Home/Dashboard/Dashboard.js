@@ -26,7 +26,7 @@ const Dashboard = () => {
                             href="#"
                             icon={FaUser}
                         >
-                            Users
+                            <Link to='/updateProfile'>Update Profile</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
                             href="#"
