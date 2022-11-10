@@ -34,7 +34,7 @@ const Comment = ({ name }) => {
         }
 
 
-        fetch('http://localhost:5000/userReviews', {
+        fetch('https://assignment-11-server-three-jet.vercel.app/userReviews', {
             method: "POST",
             headers: {
                 'content-type': "application/json"

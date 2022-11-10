@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+   
 
 
     const createNewUserManually = (email, password) => {
@@ -32,6 +33,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log(currentUser);
@@ -46,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
-        user, login, logout, loading, setLoading, createNewUserManually, googleSignIn
+        user, login, logout, loading, setLoading, createNewUserManually, googleSignIn, 
     }
 
     return (

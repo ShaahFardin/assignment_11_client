@@ -1,4 +1,4 @@
-import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
+import { Avatar, Button, DarkThemeToggle, Dropdown, Flowbite, Navbar } from 'flowbite-react';
 
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
 
-    const { user, logout, setLoading } = useContext(AuthContext);
+    const { user, logout, setLoading, } = useContext(AuthContext);
 
     const handleLogout = () => {
         logout()
@@ -22,7 +22,7 @@ const Header = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand href="https://photography-assignment-11.web.app/">
                 <img
                     src="https://i.ibb.co/sqHbV1t/lens2.jpg"
                     className="mr-3 h-6 sm:h-9"
@@ -38,7 +38,9 @@ const Header = () => {
                     inline={true}
                     label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
                 >
-
+                    <Flowbite>
+                        <DarkThemeToggle />
+                    </Flowbite>
                     <Dropdown.Header>
                         <span className="block text-sm">
                             {user?.displayName}
@@ -49,7 +51,7 @@ const Header = () => {
                     </Dropdown.Header>
 
                     <Dropdown.Item>
-                        {user?.email }
+                        {user?.email}
                     </Dropdown.Item>
 
                     <Dropdown.Item>
@@ -57,13 +59,13 @@ const Header = () => {
                     </Dropdown.Item>
 
                     <Dropdown.Item>
-                    <Link to='/addService'>Add Service</Link>
-                    {/* {user?.email? <Link to='/addService'>Add Service</Link> : <></>} */}
+                        <Link to='/addService'>Add Service</Link>
+                        {/* {user?.email? <Link to='/addService'>Add Service</Link> : <></>} */}
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
                         {user?.email ? <Button onClick={handleLogout}>Signout</Button>
-                         : <Button><Link to='/login'>SignIn</Link></Button>}
+                            : <Button><Link to='/login'>SignIn</Link></Button>}
                     </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
@@ -83,13 +85,15 @@ const Header = () => {
                 <Navbar.Link>
                     <Link to='/blogs'>Blogs</Link>
                 </Navbar.Link>
-                <Navbar.Link >
-                   
+
+                <Navbar.Link>
+                    <Link to='/blogs'>Blogs</Link>
                 </Navbar.Link>
 
-                {/* <Navbar.Link>
-                    {user?.email ? <><Link to='/services'>Add Review</Link></> : <></>}
-                </Navbar.Link> */}
+                <Navbar.Link >
+
+                </Navbar.Link>
+
             </Navbar.Collapse>
         </Navbar>
     );

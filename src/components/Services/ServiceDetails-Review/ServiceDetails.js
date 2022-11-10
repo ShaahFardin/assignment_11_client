@@ -17,7 +17,7 @@ const ServiceDetails = () => {
     const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${id}`)
+        fetch(`https://assignment-11-server-three-jet.vercel.app/service/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -33,7 +33,7 @@ const ServiceDetails = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/eventReview')
+        fetch('https://assignment-11-server-three-jet.vercel.app/eventReview')
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -49,7 +49,7 @@ const ServiceDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userReviews?service_id=${id}`)
+        fetch(`https://assignment-11-server-three-jet.vercel.app/userReviews?service_id=${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {

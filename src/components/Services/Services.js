@@ -9,7 +9,7 @@ const Services = () => {
     useTitle('Services')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://assignment-11-server-three-jet.vercel.app/services`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -26,7 +26,7 @@ const Services = () => {
     return (
         <div>
             <h1>Services : {services.length}</h1>
-            <div className='grid grid-cols-3 w-3/4 mx-auto mt-24 gap-5'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto mt-24 gap-5'>
                 {
                     services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                 }

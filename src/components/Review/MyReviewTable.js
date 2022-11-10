@@ -11,7 +11,7 @@ const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
 
     // Delete review
     const handelDelete = () => {
-        fetch(`http://localhost:5000/myReviews/${_id}`, {
+        fetch(`https://assignment-11-server-three-jet.vercel.app/myReviews/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

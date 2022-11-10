@@ -10,7 +10,7 @@ const LimitedService = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services?size=${size}&page=${page}`)
+        fetch(`https://assignment-11-server-three-jet.vercel.app/services?size=${size}&page=${page}`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {

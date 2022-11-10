@@ -13,7 +13,7 @@ const MyReview = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${email}`, {
+        fetch(`https://assignment-11-server-three-jet.vercel.app/myReviews?email=${email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('photoGraphyToken')}`
             }

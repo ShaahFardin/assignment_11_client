@@ -4,12 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
+import { Flowbite } from 'flowbite-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-    <App />
+      <Flowbite
+        theme={{
+          theme: {
+            alert: {
+              color: {
+                primary: 'bg-primary'
+              }
+            }
+          }
+        }}
+      >
+        <App />
+      </Flowbite>
     </AuthProvider>
   </React.StrictMode>
 );

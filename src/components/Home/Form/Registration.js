@@ -34,7 +34,7 @@ const Registration = () => {
 
 
         // Save the newly created user to the database
-        fetch('http://localhost:5000/createUser', {
+        fetch('https://assignment-11-server-three-jet.vercel.app/createUser', {
             method: "POST",
             headers: {
                 'content-type': "application/json"
