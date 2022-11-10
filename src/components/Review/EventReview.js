@@ -18,7 +18,7 @@ const EventReview = ({ eventReview }) => {
                                     <div className="flex items-center ">
                                         <Gallery image={image} size={"h-10 w-10 rounded"}></Gallery>
                                         <div className="min-w-0 flex-1">
-                                            <p className=" text-gray-600 dark:text-white">
+                                            <p className=" text-gray-600 dark:text-white ml-2">
                                                 {name}
                                             </p>
                                         </div>

@@ -1,15 +1,18 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Gallery from '../Gallery/Gallery';
 
 
-const ServiceCard = ({service}) => {
+const ServiceCard = ({ service }) => {
 
     const navigate = useNavigate();
-    const {name, image, _id, price, ratings} = service;
+    const { name, image, _id, price, ratings, description } = service;
 
-    const handleViewDetails = id =>{
+    const shortDetails = description.slice(0, 100);
+    const details = shortDetails.concat("...")
+        ;
+    const handleViewDetails = id => {
         navigate(`/service/${id}`)
     }
 
@@ -17,8 +20,8 @@ const ServiceCard = ({service}) => {
         <div className="max-w-sm">
             <Card
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                
-                // imgSrc={image}
+
+            // imgSrc={image}
             >
                 {/* <img className='h-72 rounded-xl' src={image} alt='fdf'/> */}
                 <Gallery image={image} size={"h-64"}></Gallery>
@@ -72,11 +75,14 @@ const ServiceCard = ({service}) => {
                         {ratings}
                     </span>
                 </div>
+                <div>
+                    <p className='font-thin text-start'>{details}</p>
+                </div>
                 <div className="flex items-center justify-between">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                         ${price}
                     </span>
-                    <Button onClick={()=>handleViewDetails(_id)}>View Details</Button>
+                    <Button onClick={() => handleViewDetails(_id)}>View Details</Button>
                 </div>
             </Card>
         </div>

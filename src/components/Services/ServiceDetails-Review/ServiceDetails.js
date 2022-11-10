@@ -31,6 +31,7 @@ const ServiceDetails = () => {
     }, [id])
 
     const { name, image, description, price, likes, ratings, download } = serviceDetails;
+   
 
 
     useEffect(() => {

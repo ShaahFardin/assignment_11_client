@@ -1,7 +1,7 @@
 import { Card } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-
+import {} from "react-icons/fa";
 const UserReview = ({ specificReview }) => {
 
     const { user } = useContext(AuthContext)
@@ -19,8 +19,9 @@ const UserReview = ({ specificReview }) => {
                                         <img
                                             className="h-10 w-10 rounded mr-3"
                                             src={user?.photoURL}
-                                            alt="Null"
+                                            alt=""
                                         />
+                                        
                                         <div className="min-w-0 flex-1">
                                             <p className="font-thin text-gray-600 dark:text-white">
                                                 {email}
