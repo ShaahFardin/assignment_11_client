@@ -3,12 +3,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import useTitle from '../../../hooks/UseTitle';
 
 
 const Registration = () => {
 
     const { createNewUserManually, googleSignIn, setLoading } = useContext(AuthContext)
-
+    useTitle("SignUp")
 
     const handleRegistratioin = e => {
         e.preventDefault();

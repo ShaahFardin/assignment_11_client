@@ -10,31 +10,37 @@ const MyReview = () => {
     const [myReviews, setMyReviews] = useState([]);
     const [refresh, setRefresh] = useState(false)
 
+
+
     useEffect(() => {
         fetch(`http://localhost:5000/myReviews?email=${email}`, {
             headers: {
-                authorization : `Bearer ${localStorage.getItem('photoGraphyToken')}`
+                authorization: `Bearer ${localStorage.getItem('photoGraphyToken')}`
             }
         })
             .then(res => {
-                if(res.status === 401 || res.status === 403){
+                if (res.status === 401 || res.status === 403) {
                     logout();
                 }
-               return res.json()
+                return res.json()
             })
             .then(data => {
-                console.log("recieved",data);
+                console.log("recieved", data);
                 setMyReviews(data.data)
             })
-    }, [email, refresh])
+    }, [email, logout])
 
-    if(myReviews.length === 0){
+
+
+    if (myReviews.length === 0) {
         return <h1 className='text-5xl font-thin my-20'>You did not leave any review "_"</h1>
     }
 
+
+
     return (
         <div className='w-3/4 mx-auto my-10'>
-            
+
             <Table striped={true}>
                 <Table.Head>
                     <Table.HeadCell>
@@ -53,11 +59,11 @@ const MyReview = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
-                   {
-                    myReviews.map(myReview=> <MyReviewTable key={myReview._id}
-                        refresh={refresh} setRefresh={setRefresh} myReview={myReview}></MyReviewTable>)
-                   }
-                   
+                    {
+                        myReviews.map(myReview => <MyReviewTable key={myReview._id}
+                            refresh={refresh} setRefresh={setRefresh} myReview={myReview}></MyReviewTable>)
+                    }
+
                 </Table.Body>
             </Table>
         </div>

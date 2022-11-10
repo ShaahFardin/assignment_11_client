@@ -1,18 +1,21 @@
-import { Button, Checkbox, FileInput, Label, Textarea, TextInput } from 'flowbite-react';
+import { Button, Textarea, TextInput } from 'flowbite-react';
 import React from 'react';
 import { toast } from 'react-toastify';
 
 const AddService = () => {
 
     const handleAddService = (e) => {
+
+
         e.preventDefault();
         const service = {
             name: e.target.name.value,
             price: e.target.price.value,
             image: e.target.image.value,
             description: e.target.description.value
-
         }
+
+
         fetch('http://localhost:5000/add-service', {
             method: "POST",
             headers: {
@@ -23,9 +26,9 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    toast.success("Service added",  { position: toast.POSITION.TOP_CENTER })
+                    toast.success("Service added", { position: toast.POSITION.TOP_CENTER })
                 } else {
-                    toast.error('Could not add the service to the database',  { position: toast.POSITION.TOP_CENTER })
+                    toast.error('Could not add the service to the database', { position: toast.POSITION.TOP_CENTER })
                 }
             })
             .catch(error => console.log(error.message))
@@ -69,7 +72,7 @@ const AddService = () => {
                         name='description'
                         placeholder="Leave a comment..."
                         required={true}
-                        
+
                     />
                 </div>
 

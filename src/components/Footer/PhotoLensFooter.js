@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 
 const PhotoLensFooter = () => {
     return (
-        <div>
+        <div >
             <Footer container={true}>
-                <div className="w-full mt-24">
+                <div className="w-full mt-24 bg-slate-50">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div>
                             <Footer.Brand
                                 href="https://flowbite.com"
                                 src="https://i.ibb.co/sqHbV1t/lens2.jpg"
                                 alt="Flowbite Logo"
-                                name="Flowbite"
+                                name="PhotoLens"
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

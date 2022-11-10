@@ -1,7 +1,11 @@
 import { Accordion } from 'flowbite-react';
 import React from 'react';
+import useTitle from '../../hooks/UseTitle';
 
 const BlogSection = () => {
+
+    useTitle('Blogs')
+    
     return (
         <div className='w-3/4 mx-auto mt-10'>
             <Accordion alwaysOpen={true}>

@@ -1,9 +1,10 @@
-import { Button, Checkbox, Label, TextInput, Toast } from 'flowbite-react';
+import { Button, Label, Spinner, TextInput, } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import useTitle from '../../../hooks/UseTitle';
 
 const Login = () => {
 
@@ -11,6 +12,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || '/';
 
@@ -40,7 +42,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        <Spinner className='h-20 w-20' aria-label="Default status example" />
                         localStorage.setItem('photoGraphyToken', data.token);
                         toast.success("Welcom Back", { position: toast.POSITION.TOP_CENTER })
                         navigate(from, { replace: true });
@@ -106,7 +108,7 @@ const Login = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    
+
                     <Label htmlFor="agree">
                         Not an user yet?
                         <Link to='/register'>

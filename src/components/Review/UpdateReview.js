@@ -1,46 +1,46 @@
-import { Button, Checkbox, Label, Textarea, TextInput } from 'flowbite-react';
+import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const UpdateReview = () => {
+
+
     const router = useParams();
     const { id } = router
 
     const { user } = useContext(AuthContext)
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
 
 
-    const handleAddProducts=event=>{
-        event.preventDefault(); 
-
-        const updatedReview={
+    const handleAddProducts = event => {
+        event.preventDefault();
+        const updatedReview = {
             review: event.target.review.value
         }
-        
+
+
         fetch(`http://localhost:5000/update/${id}`, {
-            method:"PATCH",
+            method: "PATCH",
             headers: {
-                'content-type':"application/json"
+                'content-type': "application/json"
             },
-            body:JSON.stringify(updatedReview)
+            body: JSON.stringify(updatedReview)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.success){
-                toast.success("Review updated successfully",  { position: toast.POSITION.TOP_CENTER })
-                navigate('/myReviews');
-            }else{
-                toast.error("Could not update the review",  { position: toast.POSITION.TOP_CENTER })
-            }
-            console.log(data);
-        })
-        .catch(error=>console.log(error.message))
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success("Review updated successfully", { position: toast.POSITION.TOP_CENTER })
+                    navigate('/myReviews');
+                } else {
+                    toast.error("Could not update the review", { position: toast.POSITION.TOP_CENTER })
+                }
+                console.log(data);
+            })
+            .catch(error => console.log(error.message))
     }
-  
+
 
 
     return (

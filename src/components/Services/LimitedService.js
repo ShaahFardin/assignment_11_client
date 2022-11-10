@@ -1,4 +1,3 @@
-import { Button } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
@@ -32,7 +31,7 @@ const LimitedService = () => {
 
             <div className='border border-red-600'>
                 <Link to='/services'>
-                <button className='bg-blue-700 px-12 py-2 border my-10 text-white
+                    <button className='bg-blue-700 px-12 py-2 border my-10 text-white
                  font-semibold rounded-lg'>View All</button></Link>
             </div>
 

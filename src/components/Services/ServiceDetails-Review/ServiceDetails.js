@@ -1,8 +1,6 @@
-import { faInbox } from '@fortawesome/free-solid-svg-icons';
-import { Card, Label, Sidebar, Textarea } from 'flowbite-react';
+import { Card } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import PrivateRoutes from '../../../Routes/PrivateRoutes';
 import Comment from '../../Comment/Comment';
 import Gallery from '../../Gallery/Gallery';
 import EventReview from '../../Review/EventReview';
@@ -15,7 +13,7 @@ const ServiceDetails = () => {
 
     const [serviceDetails, setServiceDetails] = useState([]);
     const [evenReviews, setEventReviews] = useState([]);
-    const [serviceSpecificReview,setserviceSpecificReview ] = useState([]);
+    const [serviceSpecificReview, setserviceSpecificReview] = useState([]);
     const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
@@ -31,7 +29,7 @@ const ServiceDetails = () => {
     }, [id])
 
     const { name, image, description, price, likes, ratings, download } = serviceDetails;
-   
+
 
 
     useEffect(() => {
@@ -40,8 +38,8 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.success) {
                     setEventReviews(data.data);
-                    
-                }else{
+
+                } else {
                     console.log('couldnot get data')
                 }
             })
@@ -50,20 +48,20 @@ const ServiceDetails = () => {
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`http://localhost:5000/userReviews?service_id=${id}`)
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.success){
-                setserviceSpecificReview(data.data);
-                console.log(data);
-                setRefresh(false)
-            }else{
-                console.log('could not get the service specific dadta');
-            }
-        })
-        .catch(error=>console.log(error.message))
-    },[refresh, id])
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    setserviceSpecificReview(data.data);
+                    console.log(data);
+                    setRefresh(false)
+                } else {
+                    console.log('could not get the service specific dadta');
+                }
+            })
+            .catch(error => console.log(error.message))
+    }, [refresh, id])
 
 
 
@@ -163,7 +161,7 @@ const ServiceDetails = () => {
                     </h5>
                     {/* <p className='font-thin'>Total Review {serviceSpecificReview.length}</p> */}
                     {
-                     serviceSpecificReview.map(specificReview=><UserReview key={specificReview._id} specificReview={specificReview}></UserReview>)
+                        serviceSpecificReview.map(specificReview => <UserReview key={specificReview._id} specificReview={specificReview}></UserReview>)
                     }
                     {
                         evenReviews.map(eventReview => <EventReview key={eventReview._id} eventReview={eventReview}></EventReview>)
@@ -171,7 +169,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div className='w-2/5 mt-12 ml-5'>
-                   <Comment name={name}></Comment>
+                    <Comment name={name}></Comment>
                 </div>
 
             </div>
