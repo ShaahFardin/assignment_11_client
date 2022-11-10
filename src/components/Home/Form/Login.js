@@ -1,13 +1,13 @@
 import { Button, Checkbox, Label, TextInput, Toast } from 'flowbite-react';
 import React, { useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import {FaGoogle} from "react-icons/fa";
-import { toast, ToastContainer } from 'react-toastify';
+import { FaGoogle } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
-    const { login,  googleSignIn, setLoading } = useContext(AuthContext);
+    const { login, googleSignIn, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,9 +26,26 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                toast.success("Welcom Back",  { position: toast.POSITION.TOP_CENTER })
-                navigate(from, { replace: true });
 
+                // Get jwt token
+                const jwtUser = {
+                    email: user.email
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(jwtUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('photoGraphyToken', data.token);
+                        toast.success("Welcom Back", { position: toast.POSITION.TOP_CENTER })
+                        navigate(from, { replace: true });
+                    })
+                    .catch(error => console.log(error.message))
             })
             .catch((error) => {
                 console.error(error)
@@ -39,19 +56,19 @@ const Login = () => {
 
     }
 
-    const handleGoogleSignIn=()=>{
+    const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-            setLoading(false)
-           toast.success("Hi! Happy to have you back",  { position: toast.POSITION.TOP_CENTER })
-            navigate(from, { replace: true });
-        })
-        .catch(error=>console.log(error.message))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setLoading(false)
+                toast.success("Hi! Happy to have you back", { position: toast.POSITION.TOP_CENTER })
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.log(error.message))
     }
 
-    
+
     return (
         <div className='w-3/5 mx-auto my-16'>
             <h1 className='text-3xl font-thin text-left mb-10 text-blue-600'>Login</h1>
@@ -89,25 +106,22 @@ const Login = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <Checkbox id="agree" />
+                    
                     <Label htmlFor="agree">
-                        I agree with the{' '}
-                        <a
-                            href="/forms"
-                            className="text-blue-600 hover:underline dark:text-blue-500"
-                        >
-                            terms and conditions
-                        </a>
+                        Not an user yet?
+                        <Link to='/register'>
+                            <span className='className="text-blue-600 hover:underline dark:text-blue-500"'>SignUp</span>
+                        </Link>
                     </Label>
                 </div>
-                <Button  type="submit">
+                <Button type="submit">
                     LOGIN
                 </Button>
             </form>
-                <Button onClick={handleGoogleSignIn} className='w-full mt-5' color="gray">
-                    <FaGoogle className='text-xl mr-5'></FaGoogle> <p className='font-thin text-xl'>Login with Google</p>
-                </Button>
-                
+            <Button onClick={handleGoogleSignIn} className='w-full mt-5' color="gray">
+                <FaGoogle className='text-xl mr-5'></FaGoogle> <p className='font-thin text-xl'>Login with Google</p>
+            </Button>
+
         </div>
     );
 };

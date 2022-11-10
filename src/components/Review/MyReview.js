@@ -5,16 +5,25 @@ import MyReviewTable from './MyReviewTable';
 
 const MyReview = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const email = user?.email;
     const [myReviews, setMyReviews] = useState([]);
     const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/myReviews?email=${email}`, {
+            headers: {
+                authorization : `Bearer ${localStorage.getItem('photoGraphyToken')}`
+            }
+        })
+            .then(res => {
+                if(res.status === 401 || res.status === 403){
+                    logout();
+                }
+               return res.json()
+            })
             .then(data => {
-                console.log(data);
+                console.log("recieved",data);
                 setMyReviews(data.data)
             })
     }, [email, refresh])
