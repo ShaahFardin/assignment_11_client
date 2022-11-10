@@ -1,6 +1,7 @@
 import { Button, Checkbox, Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const UpdateReview = () => {
@@ -30,10 +31,10 @@ const UpdateReview = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.success){
-                alert("UPDATED successfully")
+                toast.success("Review updated successfully",  { position: toast.POSITION.TOP_CENTER })
                 navigate('/myReviews');
             }else{
-                alert(data.error)
+                toast.error("Could not update the review",  { position: toast.POSITION.TOP_CENTER })
             }
             console.log(data);
         })

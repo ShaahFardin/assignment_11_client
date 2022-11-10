@@ -1,5 +1,6 @@
 import { Button, Checkbox, FileInput, Label, Textarea, TextInput } from 'flowbite-react';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
 
@@ -22,9 +23,9 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    alert("Service added successfully")
+                    toast.success("Service added",  { position: toast.POSITION.TOP_CENTER })
                 } else {
-                    alert('Could not add the service to the database')
+                    toast.error('Could not add the service to the database',  { position: toast.POSITION.TOP_CENTER })
                 }
             })
             .catch(error => console.log(error.message))

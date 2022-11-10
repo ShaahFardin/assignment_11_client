@@ -1,6 +1,7 @@
 import { Button, Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
 
@@ -15,13 +16,13 @@ const MyReviewTable = ({ myReview, setRefresh, refresh }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    alert("successfully deleted");
+                    toast.info("successfully deleted",  { position: toast.POSITION.TOP_CENTER });
                     setRefresh(!refresh)
                 } else {
-                    alert(data.error)
+                    toast.error("Could not delete the review",  { position: toast.POSITION.TOP_CENTER } )
                 }
             })
-            .catch(error => alert(error.message))
+            .catch(error => console.log(error.message))
 
     }
 

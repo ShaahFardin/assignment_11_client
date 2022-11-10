@@ -2,6 +2,7 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 
 const Registration = () => {
@@ -22,7 +23,7 @@ const Registration = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                alert("User created successfully")
+                toast.success("User created successfully",  { position: toast.POSITION.TOP_CENTER })
             })
             .catch(error => console.log(error))
     }

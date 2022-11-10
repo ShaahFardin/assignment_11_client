@@ -1,6 +1,7 @@
 import { Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Comment = ({name}) => {
@@ -20,7 +21,7 @@ const Comment = ({name}) => {
         e.preventDefault();
 
         if (!user) {
-            alert("Please login to add review")
+            toast.warning("Please login to add review",  { position: toast.POSITION.TOP_LEFT })
             return navigate('/login')
         }
 
@@ -43,7 +44,7 @@ const Comment = ({name}) => {
         .then(res=> res.json())
         .then(data=>{
             if(data.success){
-                alert("Review added successfully");
+                toast.success("Review added successfully",  { position: toast.POSITION.TOP_CENTER });
                 
             }else{
                 console.log(data.error);

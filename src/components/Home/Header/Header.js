@@ -2,6 +2,7 @@ import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Header = () => {
@@ -11,6 +12,7 @@ const Header = () => {
     const handleLogout = () => {
         logout()
             .then(() => {
+                toast.error("User Logged out")
                 setLoading(false)
             }).catch()
     }
