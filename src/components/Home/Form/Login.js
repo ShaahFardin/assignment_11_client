@@ -109,11 +109,8 @@ const Login = () => {
 
                 <div className="flex items-center gap-2">
 
-                    <Label htmlFor="agree">
-                        Not an user yet?
-                        <Link to='/register'>
-                            <span className='className="text-blue-600 hover:underline dark:text-blue-500"'>SignUp</span>
-                        </Link>
+                <Label htmlFor="agree">
+                       Already have an account? <Link to='/register'><span className='text-blue-600'>SignUp</span></Link>
                     </Label>
                 </div>
                 <Button type="submit">

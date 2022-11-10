@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import useTitle from '../../../hooks/UseTitle';
+import { Link } from 'react-router-dom';
 
 
 const Registration = () => {
@@ -19,7 +20,9 @@ const Registration = () => {
             "name": e.target.name.value,
             "email": e.target.email.value,
             "password": e.target.password.value,
+            "photoURL": e.target.photoURL.value
         }
+        console.log("Inside registratioin",user);
         createNewUserManually(user.email, user.password)
             .then(result => {
                 const user = result.user;
@@ -27,6 +30,26 @@ const Registration = () => {
                 toast.success("User created successfully",  { position: toast.POSITION.TOP_CENTER })
             })
             .catch(error => console.log(error))
+        fetch('http://localhost:5000/createUser', {
+            method: "POST",
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(user)       
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            if(data.success){
+                toast.success("User created",  { position: toast.POSITION.TOP_CENTER });
+                
+            }else{
+                console.log(data.error);
+            }
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
+
     }
 
     const handleGoogleSignIn = () => {
@@ -54,6 +77,19 @@ const Registration = () => {
                         shadow={true}
                     />
                 </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label value="Your Photo" />
+                    </div>
+                    <TextInput
+                        type="text"
+                        name='photoURL'
+                        placeholder="PhotoURL"
+                        required={true}
+                        shadow={true}
+                    />
+                </div>
+
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -87,15 +123,8 @@ const Registration = () => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <Checkbox id="agree" />
                     <Label htmlFor="agree">
-                        I agree with the{' '}
-                        <a
-                            href="/forms"
-                            className="text-blue-600 hover:underline dark:text-blue-500"
-                        >
-                            terms and conditions
-                        </a>
+                       Already have an account? <Link to='/login'><span className='text-blue-600'>Login</span></Link>
                     </Label>
                 </div>
                 <Button type="submit">
