@@ -6,6 +6,7 @@ import Registration from "../components/Home/Form/Registration";
 import Home from "../components/Home/Home/Home";
 import MyReview from "../components/Review/MyReview";
 import UpdateReview from "../components/Review/UpdateReview";
+import UserReview from "../components/Review/UserReview";
 import AddService from "../components/Services/AddService";
 import ServiceDetails from "../components/Services/ServiceDetails-Review/ServiceDetails";
 import Services from "../components/Services/Services";
@@ -60,7 +61,8 @@ const router = createBrowserRouter([
             {
                 path:'/blogs',
                 element: <BlogSection></BlogSection>
-            }
+            },
+           
         ]
     }
 ])

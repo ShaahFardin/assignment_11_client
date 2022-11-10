@@ -1,6 +1,7 @@
 import { Sidebar } from 'flowbite-react';
 import React from 'react';
 import { FaChartBar, FaViber, FaUser, FaShoppingBag, FaSignInAlt, FaTable, FaChartArea, FaInbox, FaDollarSign, FaHandsHelping } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -14,17 +15,12 @@ const Dashboard = () => {
                         >
                             Dashboard
                         </Sidebar.Item>
-                        <Sidebar.Item
-                            href="#"
-                            icon={FaViber}
-                        >
-                            Kanban
-                        </Sidebar.Item>
+                        
                         <Sidebar.Item
                             href="#"
                             icon={FaInbox}
                         >
-                            Inbox
+                            <Link to='/blogs'>Blogs</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
                             href="#"
@@ -36,19 +32,19 @@ const Dashboard = () => {
                             href="#"
                             icon={FaShoppingBag}
                         >
-                            Products
+                            <Link to='/services'>Services</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
-                            href="#"
+                           
                             icon={FaSignInAlt}
                         >
-                            Sign In
+                           <Link to='/login'> Sign In</Link>
                         </Sidebar.Item>
                         <Sidebar.Item
                             href="#"
                             icon={FaTable}
                         >
-                            Sign Up
+                           <Link to='/register'> Sign Up</Link>
                         </Sidebar.Item>
                     </Sidebar.ItemGroup>
                     <Sidebar.ItemGroup>

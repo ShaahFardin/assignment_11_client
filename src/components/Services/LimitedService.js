@@ -1,3 +1,4 @@
+import { Button, Rating } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
@@ -29,10 +30,44 @@ const LimitedService = () => {
                 }
             </div>
 
-            <div className='border border-red-600'>
+            <div className=''>
                 <Link to='/services'>
                     <button className='bg-blue-700 px-12 py-2 border my-10 text-white
                  font-semibold rounded-lg'>View All</button></Link>
+            </div>
+            <div className='my-32 ml-32 mx-auto'>
+                <h1 className='text-5xl font-thin my-10 text-left'>What our customer thinks about us?</h1>
+                <React.Fragment>
+                    <Rating>
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star filled={false} />
+                        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                            4.95 out of 5
+                        </p>
+                    </Rating>
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        1,745 global ratings
+                    </p>
+                    <Rating.Advanced className='my-3' percentFilled={70}>
+                        5 star
+                    </Rating.Advanced>
+                    <Rating.Advanced className='my-3' percentFilled={17}>
+                        4 star
+                    </Rating.Advanced>
+                    <Rating.Advanced className='my-3' percentFilled={8}>
+                        3 star
+                    </Rating.Advanced>
+                    <Rating.Advanced className='my-3' percentFilled={4}>
+                        2 star
+                    </Rating.Advanced>
+                    <Rating.Advanced className='my-3' percentFilled={1}>
+                        1 star
+                    </Rating.Advanced>
+                </React.Fragment>
+                <Link to='/services'><Button color='gray'>Take a look at our various collectioin</Button></Link>
             </div>
 
         </div>
