@@ -25,7 +25,7 @@ const Services = () => {
 
     return (
         <div>
-            <h1>Services : {services.length}</h1>
+          
             <div className='grid md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto mt-24 gap-5'>
                 {
                     services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)

@@ -28,8 +28,8 @@ const Header = () => {
                     className="mr-3 h-6 sm:h-9"
                     alt="Flowbite Logo"
                 />
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    PhotoLens
+                <span className="self-center whitespace-nowrap text-2xl font-bold dark:text-white">
+                    PHOTOLENS
                 </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
@@ -70,24 +70,20 @@ const Header = () => {
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
-            <Navbar.Collapse>
+            <Navbar.Collapse >
                 <Navbar.Link
                     href="/home"
                     active={true}
                 >
-                    <Link to='/home'>Home</Link>
+                    <Link to='/home'><span className='text-xl'>Home</span></Link>
                 </Navbar.Link>
 
                 <Navbar.Link href="/navbars">
-                    <Link to='/services'>Services</Link>
+                    <Link to='/services'><span className='text-xl'>Services</span></Link>
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <Link to='/blogs'>Blogs</Link>
-                </Navbar.Link>
-
-                <Navbar.Link>
-                    <Link to='/blogs'>Blogs</Link>
+                    <Link to='/blogs'><span className='text-xl'>Blogs</span></Link>
                 </Navbar.Link>
 
                 <Navbar.Link >

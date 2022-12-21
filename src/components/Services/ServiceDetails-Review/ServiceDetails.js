@@ -71,7 +71,7 @@ const ServiceDetails = () => {
             <div className=" my-16">
                 <h1 className='text-4xl  my-10 font-thin text-left'>Get a better look at what you get with us</h1>
                 <Card className=''>
-                    <Gallery image={image} size={"h-96"}></Gallery>
+                    <Gallery className='object-cover' image={image} size={"h-96"}></Gallery>
                     <a href="#dfd">
                         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                             {name}
